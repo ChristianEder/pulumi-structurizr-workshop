@@ -1,0 +1,53 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sku": {
+            "type": "string"
+        },
+        "skuCode": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "name": "test-web-app"
+    },
+    "resources": [
+        {
+            "apiVersion": "2018-02-01",
+            "name": "[variables('name')]",
+            "type": "Microsoft.Web/sites",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Web/serverfarms/', variables('name')]"
+            ],
+            "properties": {
+                "name": "[variables('name')]",
+                "serverFarmId": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', variables('name'))]"
+            }
+        },
+        {
+            "apiVersion": "2018-02-01",
+            "name": "[variables('name')]",
+            "type": "Microsoft.Web/serverfarms",
+            "location": "[resourceGroup().location]",
+            "kind": "linux",
+            "properties": {
+                "name": "[variables('name')]",
+                "workerSize": "0",
+                "workerSizeId": "0",
+                "numberOfWorkers": "1"
+            },
+            "sku": {
+                "Tier": "[parameters('sku')]",
+                "Name": "[parameters('skuCode')]"
+            }
+        }
+    ],
+    "outputs": {
+        "url": {
+            "value": "[concat('htps://', reference(concat(resourceGroup().id, '/providers/Microsoft.Web/sites/', variables('name'))).defaultHostName)]",
+            "type": "string"
+        }
+    }
+}

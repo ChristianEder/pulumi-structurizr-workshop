@@ -1,0 +1,3 @@
+name: webapp
+runtime: nodejs
+description: Create an Azure web app with pulumi
