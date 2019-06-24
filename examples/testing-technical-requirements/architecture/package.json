@@ -1,0 +1,22 @@
+{
+    "name": "pulumi-structurizr-iot-infrastructure",
+    "version": "0.0.1",
+    "scripts": {
+        "build": "tsc",
+        "test": "set PULUMI_TEST_MODE=true&& set PULUMI_NODEJS_PROJECT=test&& set PULUMI_NODEJS_STACK=test&& mocha --require ts-node/register index.ts"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "0.17.18",
+        "@pulumi/azure": "0.18.8",
+        "structurizr-typescript": "0.0.4"
+    },
+    "devDependencies": {
+        "typescript": "3.5.1",
+        "mocha": "6.1.4",
+        "@types/mocha": "5.2.7",
+        "chai": "4.2.0",
+        "@types/chai": "4.1.7",
+        "ts-node": "8.3.0"
+    },
+    "license": "MIT"
+}
