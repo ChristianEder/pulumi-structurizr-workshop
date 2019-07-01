@@ -1,0 +1,23 @@
+.azure-iot {
+    font-family: "Segoe UI Light","Source Sans Pro", Helvetica, sans-serif;
+}
+
+.azure-iot h2 {
+    font-size: 1.1em;
+    font-family: "Segoe UI Light","Source Sans Pro", Helvetica, sans-serif;
+}
+
+.azure-iot h3 {
+    font-size: 0.8em;
+    font-family: "Segoe UI Light","Source Sans Pro", Helvetica, sans-serif;
+}
+
+.azure-iot section img {
+    border: none;
+    box-shadow: none;
+}
+
+.azure-iot  .small-list {
+    text-align: left;
+    font-size: 0.6em;
+}
