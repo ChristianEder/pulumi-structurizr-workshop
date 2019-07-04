@@ -300,12 +300,12 @@
 
 							describe("infrastructure", () => {
 								describe("web app", () => {
-								  it("should only support HTTPS requests", (done) => {
+									it("should only support HTTPS requests", (done) => {
 									infrastructure.app.httpsOnly.apply(h => { 
-									  expect(h).to.equal(true);
-									  done();
-									 });
-								  });
+										expect(h).to.equal(true);
+										done();
+										});
+									});
 								});
 							  });
 						</code>
