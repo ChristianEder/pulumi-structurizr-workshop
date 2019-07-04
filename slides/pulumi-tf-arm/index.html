@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Azure IoT Data Ingress Layer Best Practices</title>
+	<title>pulumi - infrastructure as code</title>
 
 	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 	<meta name="author" content="Hakim El Hattab">
@@ -45,9 +45,98 @@
 		<div class="slides">
 
 			<section class="title-slide">
-				<h2>Pulumi - infrastructure as code</h1>
+				<h2>pulumi - infrastructure as code</h1>
 					<h3>Compared to Terraform and Azure Resource Manager</h3>
 			</section>
+
+			<section>
+				<h2>Every cloud provider has its custom tool to automate infrastructure management</h2>
+			</section>
+
+			<section>
+				<h2>Azure Resource Manager</h2>
+				<div>Command line & JSON files | az CLI</div>
+				<img class="stretch" data-src="img/arm-example.png" />
+			</section>
+
+			<section>
+				<h2>AWS Cloud Formation</h2>
+				<div>Command line & YAML files</div>
+				<img class="stretch" data-src="img/cf-example.png" />
+			</section>
+
+			<section>
+				<h2>Google Cloud Platform Deployment Manager</h2>
+				<div>Command line & YAML files</div>
+				<img class="stretch" data-src="img/dm-example.png" />
+			</section>
+
+			<section>
+				<h2>Using the cloud providers native tools</h2>
+				<ul>
+					<li style="margin-top: 50px">😊 usually has the best documentation</li>
+					<li>😊 usually has the richest feature support</li>
+
+					<li style="margin-top: 50px">😓 is hard to read, change & re-use</li>
+					<li>😓 requires custom cmd line code to deploy</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>About pulumi</h2>
+				TODO
+			</section>
+
+			<section>
+				<section>
+					<h2>The power of using a general purpose programming language</h2>
+					<div style="margin-top: 10px">since when became this</div>
+					<img data-src="img/arm-computation.png" />
+					<div>sexier than this</div>
+					<img data-src="img/pulumi-computation.png" />
+				</section>
+
+				<section>
+					<h2>string concatentation</h2>
+					<div>ARM</div>
+					<img data-src="img/arm-computation.png" />
+					<div>Terraform</div>
+					<img data-src="img/tf-computation.png" />
+					<div>pulumi</div>
+					<img data-src="img/pulumi-computation.png" />
+				</section>
+
+				<section>
+					<h2>parametrization</h2>
+					<div>ARM</div>
+					<img data-src="img/arm-params.png" />
+				</section>
+
+				<section>
+					<h2>parametrization</h2>
+					<div>Terraform</div>
+					<img data-src="img/tf-params.png" />
+				</section>
+
+				<section>
+					<h2>parametrization</h2>
+					<div>pulumi</div>
+					<img data-src="img/pulumi-params.png" />
+				</section>
+
+				<section>
+					<h2>loops</h2>
+				</section>
+
+				<section>
+					<h2>conditionals</h2>
+				</section>
+			</section>
+
+			<section>
+				Static website arm vs tf vs pulumi yay
+			</section>
+
 
 			<section>
 				<h2>Thanks for listening</h2>

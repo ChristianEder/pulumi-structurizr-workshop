@@ -23,5 +23,5 @@ resource "azurerm_app_service" "webapp" {
 
 output "url" {
   description = "The url of the web app."
-  value       = "${azurerm_app_service.webapp.defaultHostname}"
+  value       = "https://${azurerm_app_service.webapp.defaultHostname}"
 }
