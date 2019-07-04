@@ -53,7 +53,8 @@
 				<h2>Disclaimer</h1>
 					<ul>
 						<li>I didn't use pulumi productively yet</li>
-						<li>The slides contain examples using ARM, Terraform and pulumi - especially the Terraform examples might contain some errors, please point them out</li>
+						<li>The slides contain examples using ARM, Terraform and pulumi - especially the Terraform
+							examples might contain some errors, please point them out</li>
 					</ul>
 			</section>
 
@@ -291,27 +292,58 @@
 						<li>Package & distribute reusable components via npm</li>
 					</ul>
 				</section>
+			</section>
 
-				<section>
-					<h2>Testing</h2>
-					<pre>
-						<code data-trim data-noescape style="font-size: smaller; line-height: normal">
-							import * as infrastructure from '../infrastructure';
+			<section>
+				<h2>
+					Some pulumi gems
+				</h2>
+			</section>
+			<section>
+				<h2>Testing architectural requirements</h2>
+				<pre>
+					<code data-trim data-noescape style="font-size: smaller; line-height: normal">
+						import * as infrastructure from '../infrastructure';
 
-							describe("infrastructure", () => {
-								describe("web app", () => {
-									it("should only support HTTPS requests", (done) => {
-									infrastructure.app.httpsOnly.apply(h => { 
-										expect(h).to.equal(true);
-										done();
-										});
+						describe("infrastructure", () => {
+							describe("web app", () => {
+								it("should only support HTTPS requests", (done) => {
+								infrastructure.app.httpsOnly.apply(h => { 
+									expect(h).to.equal(true);
+									done();
 									});
 								});
-							  });
-						</code>
-					</pre>
-					More details on testing pulumi <a href="https://www.pulumi.com/blog/testing-your-infrastructure-as-code-with-pulumi/">here</a>
-				</section>
+							});
+						  });
+					</code>
+				</pre>
+				More details on testing pulumi <a
+					href="https://www.pulumi.com/blog/testing-your-infrastructure-as-code-with-pulumi/">here</a>
+			</section>
+
+			<section>
+				<h2>Bringing infrastructure & application code closer together</h2>
+				<pre>
+					<code data-trim data-noescape style="font-size: smaller; line-height: normal">
+						const iotHub = new azure.iot.IoTHub("test", { ... });
+						const storageAccount = new azure.storage.Account("storage", { ... });
+						const telemetryTable = new azure.storage.Table("telemetry", { 
+							storageAccountName: storageAccount.name, ... 
+						});
+
+						iotHub.onEvent("test", {
+							outputs: [telemetryTable.output("telemetry")],
+							// This callback could just as well be defined in a 
+							// separate package and just be imported here
+							callback: async (context:any, message:any) => {
+								// Store telemetry to the configured table storage
+								bindings.telemetry = message.dataPoints
+							}
+						});
+					</code>
+				</pre>
+				More examples can be found <a
+					href="https://github.com/pulumi/pulumi-azure/tree/master/examples">here</a>
 			</section>
 
 			<section>
@@ -348,7 +380,8 @@
 			<section>
 				<h2>General remarks</h1>
 					<ul>
-						<li>Pulumi isn't free - starts at 50€ / month for small projects - see <a href="https://www.pulumi.com/pricing/">pricing</a></li>
+						<li>Pulumi isn't free - starts at 50€ / month for small projects - see <a
+								href="https://www.pulumi.com/pricing/">pricing</a></li>
 						<li>However, there is a free community edition</li>
 						<li>The maintainers are pretty reactive and helpful on twitter and github</li>
 					</ul>
