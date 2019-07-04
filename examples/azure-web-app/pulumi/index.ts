@@ -20,3 +20,6 @@ const app = new azure.appservice.AppService("test-web-app", {
 
 export const url = pulumi.interpolate`https://${app.defaultSiteHostname}`;
 
+
+
+const resourceGroups = ["euwest", "uscentral"].map(location => new azure.core.ResourceGroup(`test-web-app-${location}`, { location }));

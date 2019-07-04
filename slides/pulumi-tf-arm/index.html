@@ -107,34 +107,191 @@
 				</section>
 
 				<section>
-					<h2>parametrization</h2>
+					<h2>parameterization</h2>
 					<div>ARM</div>
 					<img data-src="img/arm-params.png" />
 				</section>
 
 				<section>
-					<h2>parametrization</h2>
+					<h2>parameterization</h2>
 					<div>Terraform</div>
 					<img data-src="img/tf-params.png" />
 				</section>
 
 				<section>
-					<h2>parametrization</h2>
+					<h2>parameterization</h2>
 					<div>pulumi</div>
 					<img data-src="img/pulumi-params.png" />
 				</section>
 
 				<section>
 					<h2>loops</h2>
+					<div>ARM</div>
+					<pre>
+							<code data-trim data-noescape style="font-size: smaller; line-height: normal">
+									"parameters": { 
+										"org": { 
+										  "type": "array", 
+										  "defaultValue": [ 
+											"contoso", 
+											"fabrikam", 
+											"coho" 
+										  ] 
+										}
+									  }, 
+									  "resources": [ 
+										{ 
+										  "name": "[concat('storage', parameters('org')[copyIndex()])]", 
+										  "copy": { 
+											"name": "storagecopy", 
+											"count": "[length(parameters('org'))]" 
+										  }, 
+										  ...
+										} 
+									  ]
+							</code>
+						</pre>
+				</section>
+
+				<section>
+					<h2>loops</h2>
+					<div>Terraform</div>
+					<pre>
+							<code data-trim data-noescape style="font-size: smaller; line-height: normal">
+									variable "user_names" {
+										description = "Create IAM users with these names"
+										type        = list(string)
+										default     = ["neo", "trinity", "morpheus"]
+									}
+									resource "aws_iam_user" "example" {
+										count = length(var.user_names)
+										name  = var.user_names[count.index]
+									}
+							</code>
+						</pre>
+				</section>
+
+				<section>
+					<h2>loops</h2>
+					<div>pulumi</div>
+					<pre>
+								<code data-trim data-noescape style="font-size: smaller; line-height: normal">
+										// Use array functions to map parameters to resources
+										const resourceGroups = ["euwest", "uscentral"]
+											.map(location => new azure.core.ResourceGroup(
+												`test-web-app-${location}`, { location }));
+
+										// Or use conventional loops
+										for(var i = 0; i < 10; i++){
+											resourceGroups.push(new azure.core.ResourceGroup(...);
+										}
+								</code>
+							</pre>
 				</section>
 
 				<section>
 					<h2>conditionals</h2>
+					<div>ARM</div>
+					<pre>
+							<code data-trim data-noescape style="font-size: smaller; line-height: normal">
+									{
+										"condition": "[equals(parameters('production'), 'Yes')]",
+										"type": "Microsoft.Compute/availabilitySets",
+										// ...
+									}
+							</code>
+						</pre>
+				</section>
+
+				<section>
+					<h2>conditionals</h2>
+					<div>Terraform</div>
+					<pre>
+								<code data-trim data-noescape style="font-size: smaller; line-height: normal">
+										variable "enable_autoscaling" {
+											description = "If set to true, enable auto scaling"
+											type        = bool
+										}
+
+										resource "aws_autoscaling_schedule" "scale_out_business_hours" {
+											count = var.enable_autoscaling ? 1 : 0
+											// ...											
+										}
+								</code>
+							</pre>
+				</section>
+
+				<section>
+					<h2>conditionals</h2>
+					<div>pulumi</div>
+					<pre>
+								<code data-trim data-noescape style="font-size: smaller; line-height: normal">
+										if (pulumi.getStack() == "prod") {
+											const loadBalancer = new azure.lb.LoadBalancer("test-web-app-lb", ...)
+										}
+								</code>
+							</pre>
+				</section>
+
+				<section>
+					<h2>reuse</h2>
+					<div>ARM</div>
+					<img data-src="img/ctrlcctrlv.png" style="background: transparent" />
+					<div>* ARM files can be split up, but not in a feasible way</div>
+				</section>
+
+				<section>
+					<h2>reuse</h2>
+					<div>Terraform</div>
+					<ul>
+						<li>Split into separate files</li>
+						<li>Allow files to be parametrized via input variables</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>reuse</h2>
+					<div>pulumi</div>
+					<ul>
+						<li>Any refactoring that programming languages support:
+							<ul>
+								<li>Extract methods</li>
+								<li>Extract classes</li>
+								<li>Extract separate files</li>
+							</ul>
+						</li>
+						<li>Package & distribute reusable components via npm</li>
+					</ul>
 				</section>
 			</section>
 
 			<section>
-				Static website arm vs tf vs pulumi yay
+				Issues I ran into
+
+				<section>
+					<div>General: limitations of Terraform also apply to pulumi</div>
+					<div style="margin-top: 20px">but pulumi usually offers a workaround that allows you to stay within
+						the programming model</div>
+				</section>
+
+				<section>Static website hosting on Azure storage
+					<ul style="margin-top: 20px">
+						<li>ARM: Enabling the feature not supported by ARM, container name $web is invalid → use az cli
+						</li>
+						<li>Terraform: 🤷‍</li>
+						<li>pulumi: here's a <a
+								href="https://github.com/pulumi/examples/blob/master/azure-ts-static-website/staticWebsite.ts">workaround</a>
+							that doesn't require you to change programming models</li>
+					</ul>
+				</section>
+				<section>CORS configuration of Azure functions
+					<ul style="margin-top: 20px">
+						<li>ARM: 👍 feature is supported
+						</li>
+						<li>Terraform: 😓‍ not supported - but we are working on it</li>
+						<li>pulumi: 😓‍ not supported - but Terraform is working on it, in the meantime, use the  <a href="https://github.com/pulumi/examples/blob/master/azure-ts-static-website/staticWebsite.ts">az cli workaround</a></li>
+					</ul>
+				</section>
 			</section>
 
 
