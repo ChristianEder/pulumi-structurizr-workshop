@@ -291,6 +291,26 @@
 						<li>Package & distribute reusable components via npm</li>
 					</ul>
 				</section>
+
+				<section>
+					<h2>Testing</h2>
+					<pre>
+						<code data-trim data-noescape style="font-size: smaller; line-height: normal">
+							import * as infrastructure from '../infrastructure';
+							
+							describe("infrastructure", () => {
+								describe("web app", () => {
+								  it("should only support HTTPS requests", (done) => {
+									infrastructure.app.httpsOnly.apply(h => { 
+									  expect(h).to.equal(true);
+									  done();
+									 });
+								  });
+								});
+							  });
+						</code>
+					</pre>
+				</section>
 			</section>
 
 			<section>
