@@ -331,7 +331,7 @@
 							storageAccountName: storageAccount.name, ... 
 						});
 
-						iotHub.onEvent("test", {
+						iotHub.onEvent("process-telemetry", {
 							outputs: [telemetryTable.output("telemetry")],
 							// This callback could just as well be defined in a 
 							// separate package and just be imported here
