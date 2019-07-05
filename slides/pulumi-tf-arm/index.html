@@ -337,7 +337,7 @@
 							// separate package and just be imported here
 							callback: async (context:any, message:any) => {
 								// Store telemetry to the configured table storage
-								bindings.telemetry = message.dataPoints
+								context.bindings.telemetry = message.dataPoints
 							}
 						});
 					</code>
