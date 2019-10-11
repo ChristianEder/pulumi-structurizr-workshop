@@ -1,0 +1,14 @@
+{
+    "name": "getting-started-structurizr",
+    "scripts": {
+        "build": "tsc",
+        "start": "tsc && node bin/index.js"
+    },
+    "devDependencies": {
+        "@types/node": "^11.13.2",
+        "typescript": "3.6.4"
+    },
+    "dependencies": {
+        "structurizr-typescript": "0.0.13"
+    }
+}
