@@ -2,5 +2,6 @@
 cd C:\Users\dev\repos\pulumi-structurizr-workshop\scripts
 .\install-pulumi.ps1
 .\install-dependencies.ps1
+.\install-vs-code-extensions.ps1
 cd ..
 code .
