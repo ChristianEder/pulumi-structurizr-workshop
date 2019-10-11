@@ -1,17 +1,12 @@
 
+deploy:
+  steps:
+  - task: Pulumi@0
+    inputs:
+      azureSubscription: 'azure'
+      command: 'up'
+      stack: 'organisation/project/environment'
+      args: '--yes'
 
-resources:
-- name: vm-created-by-deployment-manager
-  type: compute.v1.instance
-  properties:
-    zone: us-central1-a
-    machineType: zones/us-central1-a/machineTypes/n1-standard-1
-    disks:
-    - deviceName: boot
-      type: PERSISTENT
-      boot: true
-      autoDelete: true
-      initializeParams:
-        sourceImage: projects/debian-cloud/global/images/family/debian-8
-    networkInterfaces:
-    - network: global/networks/default
+
+      
