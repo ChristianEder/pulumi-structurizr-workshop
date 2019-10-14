@@ -4,4 +4,4 @@ cd C:\Users\dev\repos\pulumi-structurizr-workshop\scripts
 .\install-dependencies.ps1
 .\install-vs-code-extensions.ps1
 cd ..
-code .
+& 'C:\Program Files\Microsoft VS Code\bin\code' .

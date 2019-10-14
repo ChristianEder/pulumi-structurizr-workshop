@@ -5,7 +5,7 @@ foreach ($packageJson in $packageJsons)
 {
     $path = $packageJson.PSParentPath
     Set-Location $path
-    npm i
+    & 'C:\Program Files\nodejs\npm' i
 }
 
 Set-Location $cwd.Path
