@@ -1,0 +1,16 @@
+{
+    "name": "azure-typescript",
+    "scripts": {
+        "architecture": "set UPDATE_ARCHITECTURE=true&& set PULUMI_TEST_MODE=true&& set PULUMI_NODEJS_PROJECT=test&& set PULUMI_NODEJS_STACK=test&&tsc && node bin/index.js",
+        "infrastructure": "set UPDATE_ARCHITECTURE=false&& pulumi up"
+    },
+    "devDependencies": {
+        "@types/node": "^8.0.0",
+        "typescript": "3.6.4"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "1.3.1",
+        "@pulumi/azure": "1.2.0",
+        "structurizr-typescript": "0.0.13"
+    }
+}

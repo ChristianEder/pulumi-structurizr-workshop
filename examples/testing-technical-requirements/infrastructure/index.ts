@@ -1,19 +1,19 @@
-import * as azure from "@pulumi/azure"
-import * as pulumi from "@pulumi/pulumi";
+import * as azure from '@pulumi/azure'
+import * as pulumi from '@pulumi/pulumi';
 
-export const resourceGroup = new azure.core.ResourceGroup("resourceGroupName", {
+export const resourceGroup = new azure.core.ResourceGroup('resourceGroupName', {
   location: azure.Locations.WestEurope,
 });
 
-export const plan = new azure.appservice.Plan("test-web-app", {
+export const plan = new azure.appservice.Plan('test-web-app', {
   resourceGroupName: resourceGroup.name,
   sku: {
-    tier: "Free",
-    size: "F1",
+    tier: 'Free',
+    size: 'F1',
   }
 });
 
-export const app = new azure.appservice.AppService("test-web-app", {
+export const app = new azure.appservice.AppService('test-web-app', {
   resourceGroupName: resourceGroup.name,
   appServicePlanId: plan.id,
   httpsOnly: true
