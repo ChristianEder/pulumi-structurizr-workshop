@@ -1,0 +1,1 @@
+These scripts are used to provision the workshop development VMs inside of Azure DevTestLabs. They are not intended to be used to setup own your local development machine - they can serve as inspiration for that, though :-) 
