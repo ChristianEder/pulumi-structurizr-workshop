@@ -1,7 +1,7 @@
 Write-Host "### Getting user dir for dev user"
 Write-Host("### - Current user is " + $env:UserName)
 
-$userDir ="C:\Users\ched"
+$userDir ="C:\Users\dev"
 
 if(Test-Path $userDir)
 {
