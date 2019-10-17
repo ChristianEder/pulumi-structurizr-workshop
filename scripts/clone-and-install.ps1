@@ -2,7 +2,7 @@ Write-Host "### Getting user dir for dev user"
 Write-Host("### - Current user is " + $env:UserName)
 
 $devUser = "C:\Users\dev"
-$devUser2 = $devUser + "." + $env:computernamev
+$devUser2 = $devUser + "." + $env:computername
 $users = $devUser, $devUser2 
 
 foreach($userDir in $users) {
@@ -37,12 +37,12 @@ foreach($userDir in $users) {
     $Shortcut.Save()
     Write-Host "### Done Creating desktop shortcut to VS Code"
 
-    Write-Host "### Creating desktop shortcut to install VS Code extensions"
+    Write-Host "### Creating desktop shortcut to finalize VM setup"
     $WScriptShell = New-Object -ComObject WScript.Shell
-    $Shortcut = $WScriptShell.CreateShortcut($desktop + "\Install VS Code extensions.lnk")
-    $Shortcut.TargetPath = $repoFolder + "\scripts\install-vs-code-extensions.ps1"
+    $Shortcut = $WScriptShell.CreateShortcut($desktop + "\Finalize VM Setup.lnk")
+    $Shortcut.TargetPath = $repoFolder + "\scripts\finalize-vm-setup.ps1"
     $Shortcut.IconLocation = "C:\Program Files\Microsoft VS Code\Code.exe"
     $Shortcut.Save()
-    Write-Host "### Done Creating desktop shortcut to install VS Code extensions"
+    Write-Host "### Done Creating desktop shortcut to finalize VM setup"
 }
 

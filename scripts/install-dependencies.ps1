@@ -5,7 +5,7 @@ foreach ($packageJson in $packageJsons)
 {
     $path = $packageJson.PSParentPath
     Set-Location $path
-    Start-Process -FilePath "C:\Program Files\nodejs\npm" -ArgumentList "i" -Wait -NoNewWindow
+    Start-Process -FilePath "C:\Program Files\nodejs\npm.cmd" -ArgumentList "i" -Wait -NoNewWindow
 }
 
 Set-Location $cwd.Path
