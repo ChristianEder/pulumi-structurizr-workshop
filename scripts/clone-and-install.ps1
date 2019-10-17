@@ -3,7 +3,7 @@ Write-Host("### - Current user is " + $env:UserName)
 
 $devUser = "C:\Users\dev"
 $devUser2 = $devUser + "." + $env:computernamev
-$users = $devUser, $devUser2, 
+$users = $devUser, $devUser2 
 
 foreach($userDir in $users) {
     Write-Host("## Setting up for user dir " + $userDir)
