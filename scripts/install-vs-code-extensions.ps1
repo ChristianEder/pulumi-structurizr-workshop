@@ -1,5 +1,6 @@
+param([String]$userDir)
+
 Write-Host "### Installing VS Code extensions"
-$userDir = .\get-user-dir.ps1
 $extensionDir = $userDir + "\.vscode\extensions"
 $code = "C:\Program Files\Microsoft VS Code\bin\code.cmd"
 
