@@ -1,5 +1,5 @@
 $userDir = "C:\Users\" + $env:username
-$repoFolder = $userDir + "\repos\pulumi-structurizr-workshop"
+$repoFolder = "C:\repos\pulumi-structurizr-workshop"
 
 $installVsCodeExtensions = $repoFolder + "\scripts\install-vs-code-extensions.ps1"
 
