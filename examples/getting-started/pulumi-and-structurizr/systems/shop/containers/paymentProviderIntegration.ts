@@ -39,10 +39,15 @@ export class PaymentProviderIntegration {
                     // - Store result into the processedPayments output
                     // This code here is not only mixing architecture & infrastructure code,
                     // It also throws production code (that will actually be executed at runtime)
-                    // Into the mix. This is done by harnessing some pulumi magic that will
+                    // into the mix. This is done by harnessing some pulumi magic that will
                     // serialize the code of this callback, and deploy it together with all its
                     // dependencies to the created function app - after wiring the functions input
                     // and output bindings to the input queue and output table as defined above.
+                    // If you do not want to mix infrastructure & productive code in this way,
+                    // you can either move this function into a separate file (or even another package)
+                    // and just import it here, or you can refactor the infrastructure definition
+                    // to setup only the infrastructure (e.g. just the FunctionApp, without functions)
+                    // and deploy your function by other means to that infrastructure
                 }
             }
         );
