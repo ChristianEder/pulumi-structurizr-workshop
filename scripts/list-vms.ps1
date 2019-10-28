@@ -1,46 +1,39 @@
-$vmsJsonStringArray = az vm list-ip-addresses
-$vmsJsonString = [string]::Concat($vmsJsonStringArray)
-$vms = ConvertFrom-Json -InputObject $vmsJsonString
 
-Write-Host("#################")
-
-foreach ($vm in $vms)
-{
-    if($vm.virtualMachine.name -inotmatch 'iacaac'){
-        continue;
-    }
-    if($vm.virtualMachine.network.publicIpAddresses.Length -gt 0)
-    {
-        foreach ($ip in $vm.virtualMachine.network.publicIpAddresses)
-        {
-            Write-Host($vm.virtualMachine.name + ": " + $ip.ipAddress)
-        }
-    }
-    else
-    {
-        Write-Host($vm.virtualMachine.name + ": [no public ip yet]")
-    }
+function Parse-AZ($result) {
+    $json = [string]::Concat($result)
+    ConvertFrom-Json -InputObject $json
 }
 
-Write-Host("#################")
+$vmsJsonStringArray = az vm list-ip-addresses
+$vms = Parse-AZ($vmsJsonStringArray)
+$vms = $vms | Where-Object { $_.virtualMachine.name -imatch 'iacaac' }
+$rg = $vms[0].virtualMachine.resourceGroup
 
-foreach ($vm in $vms)
-{
-    if($vm.virtualMachine.name -inotmatch 'iacaac'){
-        continue;
-    }
-    if($vm.virtualMachine.network.publicIpAddresses.Length -gt 0)
-    {
-        foreach ($ip in $vm.virtualMachine.network.publicIpAddresses)
-        {
-            $ipJson = ConvertTo-Json -InputObject $ip
-            Write-Host("#################")
-            Write-Host("### " + $vm.virtualMachine.name)
-            Write-Host("### " + $ipJson)
+$natRulesJsonArray = az network lb inbound-nat-rule list --lb-name $rg -g $rg
+$natRules = Parse-AZ($natRulesJsonArray)
+
+$publicIpsJsonArray = az network public-ip list -g $rg
+$publicIps = Parse-AZ($publicIpsJsonArray)
+
+if ($publicIps.Length -eq 1) {
+    
+    $ip = $publicIps[0].ipAddress
+
+    foreach ($vm in $vms) {
+        if ($vm.virtualMachine.name -inotmatch 'iacaac') {
+            continue;
+        }
+
+        $nat = $natRules | Where-Object { $_.backendIpConfiguration.id -imatch $vm.virtualMachine.name }
+
+        if ($nat -eq $null) {
+            Write-Host($vm.virtualMachine.name + ": [no public ip yet]")
+        }
+        else {
+            Write-Host($vm.virtualMachine.name + ": RDP " + $ip + ":" + $nat.frontendPort)
         }
     }
-    else
-    {
-        Write-Host($vm.virtualMachine.name + ": [no public ip yet]")
-    }
+}
+else {
+    Write-Host("Resourcegroup " + $rg + " contains more than 1 public IP adress, I am not programmed to work with this :-)")
 }
