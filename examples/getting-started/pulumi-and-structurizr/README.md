@@ -1,26 +1,34 @@
-# Getting started with structurizr
-- After installing the required dependencies...
-  - NodeJS (https://nodejs.org/en/)
+# Putting it together - architecture and infrastructure as code
 
-You can now go ahead and start designing your architecture by changing the code in index.ts
-You can visualize your architecture diagram by
-- Running
+This lab is intended for advanced users - i.e. developers that are already familiar with either structurizr or pulumi, ideally both.
+
+It is intended to showcase how architecture and infrastructure as code can be combined in order to prevent creating a model code gap between the architectural intention and the actual code & infrastructure.
+
+## Prerequisites
+
+Please refer to the prerequisites sections for the [structurizr](../structurizr/README.md) and [pulumi](../pulumi/README.md) labs
+
+## Lab tasks
+
+### 01 - Get familiar with the code
+
+The example code provided in [index.ts](index.ts) and its dependencies is building upon the same 'webshop' example that is also used in the [structurizr lab](../structurizr/README.md). 
+
+But in this lab, the code - both the architectural as well as the infrastructure code - is refactored into seperate classes. Each container (in the sense of Simon Browns [C4 model](https://c4model.com)) is a separate class, containing both the code describing the containers architecture and its infrastructure.
+
+Start by diving into the classes created from the code in [index.ts](index.ts) and try to understand whats happening there.
+
+### 02 - Extend the webshop solution
+
+You can try extending the webshop using the same extension ideas provided in the [structurizr lab](../structurizr/README.md#02---customize-the-architecture-model)
+
+## Cheatsheet
+
+- How to visualize the architecture model I created?
   > npm run architecture
-- opening the newly generated file `out/architecture.puml` n VS Code
-- Showing the diagram in VS Code by
+  - open the newly generated file `out/architecture.puml` in VS Code
   - Press F1
   - Select `PlantUML: Preview Current Diagram`
   - Navigate throught the different sections of the `out/architecture.puml` file
-
-# Getting started with pulumi Azure
-
-- After installing the required dependencies...
-  - pulumi (see install-pulumi.ps1 within this repo, or visit https://www.pulumi.com/docs/get-started/install/)
-  - NodeJS (https://nodejs.org/en/)
-  - az CLI (https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-
-You can now deploy the described infrastructure to Azure by
-- Logging in to your Azure subscription
-  > az login
-- Using pulumi to deploy the infrastructure
-  > pulumi up
+- How to deploy the infrastructure to my cloud environment?
+  > npm run infrastructure

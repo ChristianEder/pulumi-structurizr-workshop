@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-> If you are doing this as part of the workshop [labs](../../../README.md), you should be fine by now, and can skip the Prerequisites section.
+> If you are doing this as part of the workshop [labs](../../../README.md), you should be fine by now, and can skip the Prerequisites section - except if you want to actually create cloud infrastructure within this lab. In that case, please read the last part of this section.
 
 Otherwise, make sure you have the following tools installed:
 
@@ -20,7 +20,7 @@ Also, if you are not doing this lab on one of the provided development VMs, you 
 
 > npm i
 
-If you want to actually create cloud infrastructure from the code provided, you will also need the following tools setup:
+**If you want to actually create cloud infrastructure** from the code provided, you will also need the following tools setup:
 
 - If you are using Azure, install the [az CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) and run the following command to login to your subscription:
   > az login
