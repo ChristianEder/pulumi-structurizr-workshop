@@ -9,6 +9,6 @@
         "typescript": "3.6.4"
     },
     "dependencies": {
-        "structurizr-typescript": "0.0.13"
+        "structurizr-typescript": "0.0.17"
     }
 }
