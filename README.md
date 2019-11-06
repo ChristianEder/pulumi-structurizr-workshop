@@ -2,7 +2,7 @@
 
 Welcome to this workshop covering architecture as code and infrastructure as code. Please follow the steps described and linked below.
 
-The introductory slides can be found [here](slides/architecure-infrastructure-as-code/Architecture&#32;&&#32;Infrastructure&#32;As&#32;Code.pptx), and there is also an [introductory slidedeck for pulumi](https://christianeder.github.io/pulumi-structurizr-workshop/slides/pulumi-tf-arm) comparing it to Terraform and ARM templates.
+The introductory slides can be found as [PDF](slides/architecure-infrastructure-as-code/Architecture&#32;&&#32;Infrastructure&#32;As&#32;Code.pdf) and [Powerpoint](slides/architecure-infrastructure-as-code/Architecture&#32;&&#32;Infrastructure&#32;As&#32;Code.pptx), and there is also an [introductory slidedeck for pulumi](https://christianeder.github.io/pulumi-structurizr-workshop/slides/pulumi-tf-arm) comparing it to Terraform and ARM templates.
 
 ## Setup or grab a development machine
 
