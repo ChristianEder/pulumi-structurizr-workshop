@@ -2,13 +2,13 @@
 
 ## Prerequisites
 
-> If you are doing this as part of the workshop [labs](../../../labs.md), you should be fine by now, and can skip the Prerequisites section.
+> If you are doing this as part of the workshop [labs](../../../README.md), you should be fine by now, and can skip the Prerequisites section.
 
 Otherwise, make sure you have the following tools installed:
 
 - [NodeJS](https://nodejs.org/en/). You can verify this by running the following command on the command line:
   > npm -v
-- VS Code
+- [VS Code](https://code.visualstudio.com/)
 - PlantUml
 - GraphViz
 
@@ -27,15 +27,15 @@ Also, if you are not doing this lab on one of the provided development VMs, you 
 ### 01 - Verify that your setup works
 
 - Open the repository folder (`C:\repos\pulumi-structurizr-workshop`) in VS Code
-- Open a terminal
+- Open a terminal in VS Code
 - Try visualizing the current state of the provided architecture model. The steps to do this are descibed in the cheat sheet section below
 - Compare the generated diagrams with the source code provided in [index.ts](index.ts) within the same directory as this README, in order to get a feeling for what the code actually does.
 
-### 02 -  Customize the architecture model
+### 02 - Customize the architecture model
 
 You can now go ahead and start designing your architecture by changing the code in [index.ts](index.ts).
 
-You can either do this free style e.g. by starting from scractch and designing the actual architecture of one of your own systems, or you can start extending the provided example architecture model with some additional containers, surrounding systems or users. 
+You can either do this free style e.g. by starting from scratch and designing the actual architecture of one of your own systems, or you can start extending the provided example architecture model with some additional containers, surrounding systems or users. 
 
 Ideas for extensions of the existing model:
 - Add a new container that represents an administrative site used to manage the shops inventory, then add a new person "Inventory manager" using that site
