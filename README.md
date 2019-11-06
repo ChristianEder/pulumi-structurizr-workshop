@@ -8,7 +8,7 @@ In order to follow the workshop on your own machine, you'll need to install [Nod
 
 If you want to work on a development VM provided for this workshop, please use RDP to connect to one of the machines shown via beamer, and make sure that each of you grabs a separate machine.
 
-After connecting to the VM, run the following script from powershell - it will install some required VS Code extensions initialize pulumi
+After connecting to the VM, run the following script from powershell - it will install some required VS Code extensions and initialize pulumi
 > .\scripts\finalize-vm-setup.ps1
 
 ## Choose your focus for the workshop
