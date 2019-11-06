@@ -14,7 +14,10 @@ Otherwise, make sure you have the following tools installed:
 
 The easiest way to install those is to use [chocolatey](https://chocolatey.org/install):
 > choco install nodejs.install vscode plantuml graphviz
-  
+
+You'll also need to install the following VS Code extension:
+- jebbs.plantuml
+
 Also, if you are not doing this lab on one of the provided development VMs, you will initially have to install npm dependencies, by running the following command within the same directory as this README:
 
 > npm i
