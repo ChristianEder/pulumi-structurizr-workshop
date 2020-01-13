@@ -6,9 +6,9 @@
     },
     "devDependencies": {
         "@types/node": "^11.13.2",
-        "typescript": "3.6.4"
+        "typescript": "3.7.4"
     },
     "dependencies": {
-        "structurizr-typescript": "0.0.17"
+        "structurizr-typescript": "1.0.2"
     }
 }
