@@ -7,29 +7,35 @@ try {
     Write-Host("####         Installed NodeJS " + $version)
     Start-Sleep -Seconds 2
 
-    Write-Host("####     02.02 - Installing VS Code")
+    Write-Host("####     02.02 - Installing .NET Core SDK")
+    choco install dotnetcore-sdk -y
+    $version = dotnet --version
+    Write-Host("####         Installed .NET Core " + $version)
+    Start-Sleep -Seconds 2
+
+    Write-Host("####     02.03 - Installing VS Code")
     choco install vscode -y
     $version = code --version
     Write-Host("####         Installed VS Code " + $version[0])
     Start-Sleep -Seconds 2
     
-    Write-Host("####     02.03 - Installing PlantUML")
+    Write-Host("####     02.04 - Installing PlantUML")
     choco install plantuml -y
     Write-Host("####         Installed PlantUML")
     Start-Sleep -Seconds 2
     
-    Write-Host("####     02.04 - Installing GraphViz")
+    Write-Host("####     02.05 - Installing GraphViz")
     choco install graphviz -y
     Write-Host("####         Installed GraphViz")
     Start-Sleep -Seconds 2
     
-    Write-Host("####     02.05 - Installing Azure CLI")
+    Write-Host("####     02.06 - Installing Azure CLI")
     choco install azure-cli -y
     $version = az --version
     Write-Host("####         Installed Azure CLI " + $version[0])
     Start-Sleep -Seconds 2
     
-    Write-Host("####     02.06 - Installing Pulumi")
+    Write-Host("####     02.07 - Installing Pulumi")
     choco install pulumi -y
     $version = pulumi version
     Write-Host("####         Installed Pulumi " + $version)
