@@ -6,19 +6,15 @@
 
 Otherwise, make sure you have the following tools installed:
 
-- [NodeJS](https://nodejs.org/en/). You can verify this by running the following command on the command line:
-  > npm -v
+- [.NET Core SDK](https://dotnet.microsoft.com/download). You can verify this by running the following command on the command line:
+  > dotnet --version
 - [VS Code](https://code.visualstudio.com/)
 - PlantUml (optional, only required for visualizing the architecture diagrams locally)
 - GraphViz (optional, only required for visualizing the architecture diagrams locally)
 - The `jebbs.plantuml` extension for VS Code (optional, only required for visualizing the architecture diagrams locally)
 
 The easiest way to install those is to use [chocolatey](https://chocolatey.org/install):
-> choco install nodejs.install vscode plantuml graphviz
-
-Also, if you are not doing this lab on a provided development VM, you will initially have to install npm dependencies, by running the following command within the same directory as this README:
-
-> npm i
+> choco install dotnetcore-sdk vscode plantuml graphviz
 
 ## Lab tasks
 
@@ -27,11 +23,11 @@ Also, if you are not doing this lab on a provided development VM, you will initi
 - Open this repositories folder in VS Code
 - Open a terminal in VS Code
 - Try visualizing the current state of the provided architecture model. The steps to do this are descibed in the cheat sheet section below
-- Compare the generated diagrams with the source code provided in [index.ts](index.ts) within the same directory as this README, in order to get a feeling for what the code actually does.
+- Compare the generated diagrams with the source code provided in [Program.cs](Program.cs) within the same directory as this README, in order to get a feeling for what the code actually does.
 
 ### 02 - Customize the architecture model
 
-You can now go ahead and start designing your architecture by changing the code in [index.ts](index.ts).
+You can now go ahead and start designing your architecture by changing the code in [Program.cs](Program.cs).
 
 You can either do this free style e.g. by starting from scratch and designing the actual architecture of one of your own systems, or you can start extending the provided example architecture model with some additional containers, surrounding systems or users. 
 
@@ -46,9 +42,9 @@ Ideas for extensions of the existing model:
 All of the commands shown below are intended to be run on a command line from the same directory as this README file.
 
 - How to verify that my code builds?
-  > npm run build
+  > dotnet build
 - How to visualize the architecture model I created?
-  > npm start
+  > dotnet run
   - open the newly generated file `out/architecture.puml` in VS Code
   - Press F1
   - Select `PlantUML: Preview Current Diagram`
