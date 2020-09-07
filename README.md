@@ -8,7 +8,7 @@ The introductory slides can be found as [PDF](slides/architecure-infrastructure-
 
 ### Scripted setup
 
-***Please note: the steps & scripts mentioned below install both mandatory & optional software to perform the workshop. If you wish to leave out the optional parts, please follow the manual setup instructions***
+***Please note: the steps & scripts mentioned below install both mandatory & optional software to perform the workshop. If you wish to leave out the optional parts, please follow the [manual setup](#manual-setup) instructions***
 
 While parts of the workshop will also work on non-Windows machines, the following steps are designed to be performed from a Windows Powershell. If you want to work from a different operating system, or do not want to use the provided scripts in order to install dependencies, please find a list of all required software at the end of this section.
 
