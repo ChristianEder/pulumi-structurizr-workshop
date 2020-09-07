@@ -1,0 +1,6 @@
+{
+    "all": "mandatory",
+    "example-policy": {
+        "message": "Some message."
+    }
+}
