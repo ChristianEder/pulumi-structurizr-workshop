@@ -8,7 +8,7 @@ class MyStack : Stack
     {
         // Create an Azure Resource Group
         var resourceGroup = new ResourceGroup("resourceGroup");
-        
+
         // Create an Azure Storage Account
         var storageAccount = new Account("storage", new AccountArgs
         {
