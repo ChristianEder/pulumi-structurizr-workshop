@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-> If you are doing this as part of the workshop [labs](../../../../README.md), you should be fine by now, and can skip the Prerequisites section.
+> If you are doing this as part of the workshop [labs](../../../README.md), you should be fine by now, and can skip the Prerequisites section.
 
 Otherwise, make sure you have the following tools installed:
 

@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-> If you are doing this as part of the workshop [labs](../../../../README.md), you should be fine by now, and can skip the Prerequisites section - except if you want to actually create cloud infrastructure within this lab. In that case, please read the last part of this section.
+> If you are doing this as part of the workshop [labs](../../../README.md), you should be fine by now, and can skip the Prerequisites section - except if you want to actually create cloud infrastructure within this lab. In that case, please read the last part of this section.
 
 Otherwise, make sure you have the following tools installed:
 

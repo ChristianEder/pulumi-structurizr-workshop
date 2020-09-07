@@ -61,7 +61,7 @@ Optionally, you'll need the following tools:
 
 Depending on the knowledge you already bring to this workshop and on your main area of interest, you can choose to be working on different aspects:
 
-- Architecture as Code with structurizr → see [.NET Core labs](examples/dotnet/getting-started/structurizr/README.md) or [NodeJS labs](examples/nodejs/getting-started/structurizr/README.md)
-- Infrastructure as Code with pulumi → see [.NET Core labs](examples/dotnet/getting-started/pulumi/README.md) or [NodeJS labs](examples/nodejs/getting-started/pulumi/README.md)
-- Combining architecture & infrastructure as code → see [.NET Core labs](examples/dotnet/getting-started/pulumi-and-structurizr/README.md) or [NodeJS labs](examples/nodejs/getting-started/pulumi-and-structurizr/README.md)
+- Architecture as Code with structurizr → see [.NET Core labs](labs/dotnet/structurizr/README.md) or [NodeJS labs](labs/nodejs/structurizr/README.md)
+- Infrastructure as Code with pulumi → see [.NET Core labs](labs/dotnet/pulumi/README.md) or [NodeJS labs](labs/nodejs/pulumi/README.md)
+- Combining architecture & infrastructure as code → see [.NET Core labs](labs/dotnet/pulumi-and-structurizr/README.md) or [NodeJS labs](labs/nodejs/pulumi-and-structurizr/README.md)
   - this lab is intended for advanced users that are already comfortable with either structurizr or pulumi
