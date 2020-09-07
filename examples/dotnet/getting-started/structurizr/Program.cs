@@ -85,6 +85,8 @@ namespace getting_started_structurizr
             new PlantUMLWriter().Write(workspace, stringWriter);
             stringWriter.Flush();
             var puml = stringWriter.ToString();
+            
+            Directory.CreateDirectory("out");
             File.WriteAllText(Path.Combine("out", "architecure.puml"), puml);
         }
     }

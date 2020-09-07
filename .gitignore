@@ -4,3 +4,4 @@ slides/architecure-infrastructure-as-code/~$Architecture & Infrastructure As Cod
 bin
 obj
 .vs
+**/out/*.puml

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Moq" Version="4.14.5" />
+    <PackageReference Include="Pulumi.Azure" Version="3.*" />
+    <PackageReference Include="Structurizr.Client" Version="0.9.7" />
+    <PackageReference Include="Structurizr.PlantUML" Version="0.9.3" />
+  </ItemGroup>
+
+</Project>
